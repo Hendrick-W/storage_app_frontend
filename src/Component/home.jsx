@@ -27,9 +27,8 @@ const FormSignIn = (props) => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('hello')
     const data = {
-      nomor_pegawai: email,
+      email: email,
       password: password,
     };
     if (!email) {
@@ -40,11 +39,11 @@ const FormSignIn = (props) => {
       axios
         .post("https://wareapplaravel.herokuapp.com/api/login", data)
         .then((res) => {
-          console.log(res);
-          // localStorage.setItem("token", res.data.result.token);
-          // localStorage.setItem("id", res.data.result.user.id);
-          // alert(res.data.message);
-          // window.location.href = "/";
+          console.log(res.data);
+          localStorage.setItem("token", res.data.result.token);
+          localStorage.setItem("id", res.data.result.user.id);
+          alert(res.data.message);
+          window.location.href = "/";
         })
         .catch((err) => alert(err));
     }
@@ -97,13 +96,13 @@ const FormSignIn = (props) => {
                       onChange={(e) =>
                         setEmail(e.target.value)
                       }
-                      placeholder="Your Id"
+                      placeholder="Nomor Pegawai"
                       ref={register({ required: true })}
                     />
                   </InputGroup>
                   {errors.email &&
                     errors.email.type === "required" && (
-                      <p style={alertText}>Nomor Pegawai required</p>
+                      <p style={alertText}>Username required</p>
                     )}
                 </Form.Group>
 
@@ -152,7 +151,7 @@ const FormSignIn = (props) => {
                     )}
                 </Form.Group>
 
-                <Link to="/user">
+                <Link to="/profile">
                   <Button
                     type="submit"
                     onClick={onSubmit}
@@ -161,13 +160,7 @@ const FormSignIn = (props) => {
                     Sign In
                               </Button>
                 </Link>
-                <h6 className="signin-text-down">
-                  Don't have an account? Please
-                              <Link to="/signup" className="signup-text-link">
-                    {" "}
-                                  Sign Up
-                              </Link>
-                </h6>
+
               </Form>
             </div>
           </div>
