@@ -1,6 +1,5 @@
 .navbar-container {
     background: #ffffff;
-    color: #fde84d;
     font-weight: normal;
     height: 6rem;
     width: 100vw;
@@ -53,16 +52,6 @@
                     border-radius: 5px;
                     margin-left: 10px;
                 }
-                .buttonSearch {
-                    position: absolute;
-                    width: 25px;
-                    height: 20px;
-                    top: 17%;
-                    right: 10%;
-                    :hover {
-                        color: #353636;
-                    }
-                }
             }
         }
     }
@@ -73,39 +62,6 @@
         padding-top: 0;
         margin-top: 0;
         
-    }
-}
-
-.card-list {
-    width: 100%;
-    background: #343434;
-}
-
-.clinic-card {
-    border-radius: 10px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    background-color: #343434;
-    color: #e5e5e5;
-    &--title {
-        margin-bottom: 0.5rem;
-        font-size: 1.75rem;
-        text-align: center;
-    }
-    &--loc {
-        margin-bottom: 0.5rem;
-        font-size: 1.5rem;
-        text-align: center;
-    }
-    &--desc {
-        font-size: 1.2rem;
-        text-align: center;
-    }
-    &--image {
-        margin: 0 auto;
-        display: block;
-        height: 500px;
     }
 }
 

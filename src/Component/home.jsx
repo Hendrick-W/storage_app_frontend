@@ -96,13 +96,13 @@ const FormSignIn = (props) => {
                                       onChange={(e) =>
                                           setEmail(e.target.value)
                                       }
-                                      placeholder="Your Id"
+                                      placeholder="Nomor Pegawai"
                                       ref={register({ required: true })}
                                   />
                               </InputGroup>
                               {errors.email &&
                                   errors.email.type === "required" && (
-                                      <p style={alertText}>Email required</p>
+                                      <p style={alertText}>Username required</p>
                                   )}
                           </Form.Group>
 
@@ -151,7 +151,7 @@ const FormSignIn = (props) => {
                                   )}
                           </Form.Group>
 
-                          <Link to="/user">
+                          <Link to="/profile">
                               <Button
                                   type="submit"
                                   onClick={onSubmit}
@@ -160,13 +160,7 @@ const FormSignIn = (props) => {
                                   Sign In
                               </Button>
                           </Link>
-                          <h6 className="signin-text-down">
-                              Don't have an account? Please
-                              <Link to="/signup" className="signup-text-link">
-                                  {" "}
-                                  Sign Up
-                              </Link>
-                          </h6>
+                          
                       </Form>
                   </div>
               </div>
