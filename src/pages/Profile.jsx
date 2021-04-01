@@ -1,11 +1,13 @@
 import React from "react";
 import Homes from "../Component/Profile";
 import Header from "../Component/Header";
+import Navbar from "../Component/Navbar";
 
 
-function Home() {
+function Profile() {
   return (
     <div >
+      <Navbar />
       <Header />
       <Homes />
 
@@ -13,4 +15,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Profile;
