@@ -39,6 +39,7 @@ const FormSignIn = (props) => {
       axios
         .post("https://wareapplaravel.herokuapp.com/api/login", data)
         .then((res) => {
+          console.log(typeof (res.data.user.role_id));
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("name", res.data.user.nama);
           localStorage.setItem("role", res.data.user.role_id);
@@ -50,18 +51,18 @@ const FormSignIn = (props) => {
   const onCheckingToken = () => {
     const token = localStorage.getItem("token");
     if (token != 'undefined' && token) {
-      console.log(token)
       const config = {
         headers: { Authorization: `Bearer ${token}` }
       }
       axios
         .get("https://wareapplaravel.herokuapp.com/api/get_user", config)
         .then((res) => {
-          console.log(res)
-          localStorage.setItem("token", token);
-          localStorage.setItem("name", res.data.user.nama);
-          localStorage.setItem("role", res.data.user.role_id);
-          window.location.href = "/Profile";
+          if (res.data.status == true) {
+            localStorage.setItem("token", token);
+            localStorage.setItem("name", res.data.user.nama);
+            localStorage.setItem("role", res.data.user.role_id);
+            window.location.href = "/Profile";
+          }
         })
         .catch((err) => console.log(err));
     }
