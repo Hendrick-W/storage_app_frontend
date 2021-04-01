@@ -3,18 +3,7 @@ import { Card, CardDeck, Button, Form } from "react-bootstrap";
 import ImageUploader from "react-images-upload";
 import "./Profile.css";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-// import { getUserProfile } from "../store/actions/user"
-// import { baseUrl } from "../helpers/api"
 function Userprofile() {
-
-  // const dispatch = useDispatch() 
-  // useEffect(() => {
-  //     dispatch(getUserProfile())
-  // }, []) 
-  // const userProfile = useSelector( state => state.user)
-  // console.log(userProfile, "ini data porpil")
-
 
   return (
     <>

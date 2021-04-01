@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleNotch, faReceipt, faStore, faTruck, faPersonBooth, faRunning } from '@fortawesome/free-solid-svg-icons'
+import { faCircleNotch, faReceipt, faStore, faTruck, faPersonBooth, faRunning, faList } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import "./Navbar.scss";
 
@@ -13,6 +13,12 @@ function Navbar() {
             <Link to="/overview">
               <FontAwesomeIcon icon={faCircleNotch} />
               <span>Overview</span>
+            </Link>
+          </li>
+          <li className="nav-text">
+            <Link to="/reference_items">
+              <FontAwesomeIcon icon={faList} />
+              <span>Reference Items</span>
             </Link>
           </li>
           <li className="nav-text">
@@ -37,22 +43,29 @@ function Navbar() {
             <Link to="#" className="nav-text">
               <FontAwesomeIcon icon={faPersonBooth} />
               <span>Employees</span>
-              <ul>
-                <li className="nav-text">
-                  <span>Dept.Head</span>
-                </li>
-                <li className="nav-text">
-                  <span>Receptionist</span>
-                </li>
-                <li className="nav-text">
-                  <span>Dept.Head</span>
-                </li>
-                <li className="nav-text">
-                  <span>Dept.Head</span>
-                </li>
-
-              </ul>
             </Link>
+            <ul>
+              <li className="nav-text">
+                <Link to="/depthead" className="nav-text">
+                  <span>Dept.Head</span>
+                </Link>
+              </li>
+              <li className="nav-text">
+                <Link to="/receptionist" className="nav-text">
+                  <span>Receptionist</span>
+                </Link>
+              </li>
+              <li className="nav-text">
+                <Link to="/storage" className="nav-text">
+                  <span>Storage</span>
+                </Link>
+              </li>
+              <li className="nav-text">
+                <Link to="/dispatch" className="nav-text">
+                  <span>Dispatch</span>
+                </Link>
+              </li>
+            </ul>
           </li>
           <li className="nav-text">
             <Link to="/Profile">

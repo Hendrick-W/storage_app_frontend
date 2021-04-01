@@ -10,7 +10,6 @@ function Profile() {
       <Navbar />
       <Header />
       <Homes />
-
     </div>
   );
 }
