@@ -7,21 +7,25 @@ import {
 } from "react-router-dom";
 import Home from "../pages/home";
 import Profile from "../pages/Profile"
+import ModalRegister from "../Component/ModalRegister"
 import DeptHead from "../pages/DeptHead";
 
 export const Routes = () => {
   return (
     <Router>
       <Switch>
-         <Route path="/" exact>
-            <Home />
-         </Route>
-         <Route path="/Profile" exact>
-           <Profile />
-         </Route>
-         <Route path="/depthead" exact>
-            <DeptHead />
-         </Route>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/Profile" exact>
+          <Profile />
+        </Route>
+        <Route path="/depthead" exact>
+          <DeptHead />
+        </Route>
+        <Route path="/Modal" exact>
+          <ModalRegister />
+        </Route>
       </Switch>
     </Router>
   );
