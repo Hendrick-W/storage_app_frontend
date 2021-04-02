@@ -1,11 +1,11 @@
-import React, { UseState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 
 
-function masterTable() {
-  const [kode_barang, setKode_barang] = UseState();
-  const [nama_barang, setNama_barang] = UseState();
-  const [kategori, setKategori] = UseState();
+function MasterTable() {
+  const [kode_barang, setKode_barang] = useState('');
+  const [nama_barang, setNama_barang] = useState('');
+  const [kategori, setKategori] = useState('');
   
 return (
 <Modal.Dialog>
@@ -15,8 +15,8 @@ return (
   <Modal.Body>
     <p>Input Kode Barang</p>
     <Form.Control
-    className="signin-column-form"
-    type="text"
+    className="product-code-form"
+    type="number"
     name="text"
     onChange={(e) =>
       setKode_barang(e)
@@ -25,7 +25,7 @@ return (
     />
     <p>Input Nama Barang</p>
     <Form.Control
-    className="signin-column-form"
+    className="product-name-form"
     type="text"
     name="text"
     onChange={(e) =>
@@ -35,7 +35,7 @@ return (
     />
     <p>Input Kategori Barang</p>
     <Form.Control
-    className="signin-column-form"
+    className="product-category-form"
     type="text"
     name="text"
     onChange={(e) =>
@@ -52,4 +52,4 @@ return (
     );
   }
 
-export default masterTable
+export default MasterTable
