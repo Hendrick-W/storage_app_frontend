@@ -28,7 +28,7 @@ const FormSignIn = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     const data = {
-      email: email,
+      nomor_pegawai: email,
       password: password,
     };
     if (!email) {
@@ -39,15 +39,36 @@ const FormSignIn = (props) => {
       axios
         .post("https://wareapplaravel.herokuapp.com/api/login", data)
         .then((res) => {
-          console.log(res.data);
-          localStorage.setItem("token", res.data.result.token);
-          localStorage.setItem("id", res.data.result.user.id);
-          alert(res.data.message);
-          window.location.href = "/";
+          console.log(typeof (res.data.user.role_id));
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("name", res.data.user.nama);
+          localStorage.setItem("role", res.data.user.role_id);
+          localStorage.setItem("nomor_pegawai", res.data.user.nomor_pegawai);
+          localStorage.setItem("tanggal_lahir", res.data.user.tanggal_lahir);
+          window.location.href = "/Profile";
         })
         .catch((err) => alert(err));
     }
   };
+  const onCheckingToken = () => {
+    const token = localStorage.getItem("token");
+    if (token != 'undefined' && token) {
+      const config = {
+        headers: { Authorization: `Bearer ${token}` }
+      }
+      axios
+        .get("https://wareapplaravel.herokuapp.com/api/get_user", config)
+        .then((res) => {
+          if (res.data.status == true) {
+            localStorage.setItem("token", token);
+            localStorage.setItem("name", res.data.user.nama);
+            localStorage.setItem("role", res.data.user.role_id);
+            window.location.href = "/Profile";
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  }
 
   const alertText = {
     color: "red",
@@ -67,6 +88,8 @@ const FormSignIn = (props) => {
       autoplay: true,
       animationData: require('./13396-storage.json')
     })
+    onCheckingToken();
+
   }, [])
 
   return (
