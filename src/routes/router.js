@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "../pages/home";
 import Profile from "../pages/Profile"
-import NavBar from "../Component/Navbar";
+import DeptHead from "../pages/DeptHead";
 
 export const Routes = () => {
   return (
@@ -19,8 +19,8 @@ export const Routes = () => {
          <Route path="/Profile" exact>
            <Profile />
          </Route>
-         <Route path="/NavBar" exact>
-            <NavBar />
+         <Route path="/depthead" exact>
+            <DeptHead />
          </Route>
       </Switch>
     </Router>

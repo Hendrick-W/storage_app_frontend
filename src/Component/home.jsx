@@ -43,6 +43,8 @@ const FormSignIn = (props) => {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("name", res.data.user.nama);
           localStorage.setItem("role", res.data.user.role_id);
+          localStorage.setItem("nomor_pegawai", res.data.user.nomor_pegawai);
+          localStorage.setItem("tanggal_lahir", res.data.user.tanggal_lahir);
           window.location.href = "/Profile";
         })
         .catch((err) => alert(err));

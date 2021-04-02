@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Homes from "../Component/Profile";
+import Homes from "../Component/DeptHead";
 import Header from "../Component/Header";
 import Navbar from "../Component/Navbar";
 import axios from "axios";

@@ -1,9 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Card, CardDeck, Button, Form } from "react-bootstrap";
 import ImageUploader from "react-images-upload";
 import "./Profile.css";
 import { Link } from "react-router-dom";
 function Userprofile() {
+  const token = localStorage.getItem("token");
+  const name = localStorage.getItem("name");
+  const role = localStorage.getItem("role");
+  const nomor_pegawai = localStorage.getItem("nomor_pegawai");
+  const tanggal_lahir = localStorage.getItem("tanggal_lahir");
   return (
     <>
       <CardDeck className="CardInfo">
@@ -11,11 +16,15 @@ function Userprofile() {
           <Card.Img variant="top"
             src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
             className="Picture" />
-          <Card.Body classname="Mandor">
+          <Card.Body className="Mandor">
             <Card.Title >
-              <p>Yopi Bangke</p>
-              <p> 2020009069</p>
-              <p> Mandor Gudang</p>
+              <p>{name}</p>
+              <p> {nomor_pegawai}</p>
+              {role == 0 && <p>Admin</p>}
+              {role == 1 && <p>Dept. Head</p>}
+              {role == 2 && <p>Receptionist</p>}
+              {role == 3 && <p>Storage</p>}
+              {role == 4 && <p>Dispatch</p>}
             </Card.Title>
 
           </Card.Body>
@@ -52,20 +61,24 @@ function Userprofile() {
             <b>Nama Pegawai</b>
             <Form.Control
               type="text"
-              placeholder="Yopi Bangke"
+              placeholder={name}
               className="Formemail"
             ></Form.Control>
           </Form.Group>
           <Form.Group className="Gender">
             <b>Jabatan</b>
-            <p>Pegawai Kasar</p>
+            {role == 0 && <p>Admin</p>}
+            {role == 1 && <p>Dept. Head</p>}
+            {role == 2 && <p>Receptionist</p>}
+            {role == 3 && <p>Storage</p>}
+            {role == 4 && <p>Dispatch</p>}
           </Form.Group>
           <Form.Group controlId="FormEmail" className="Username">
             {" "}
             <b>Nomor Pegawai</b>
             <Form.Control
               type="number"
-              placeholder="2020009069"
+              placeholder={nomor_pegawai}
               className="Formemail"
             ></Form.Control>
           </Form.Group>
@@ -73,7 +86,7 @@ function Userprofile() {
             <b>Password</b>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="*******"
               className="Formemail"
             ></Form.Control>
           </Form.Group>
@@ -86,7 +99,7 @@ function Userprofile() {
         }}
         className="Simpan">
         Save Profile
-            </Button>
+      </Button>
     </>
   );
 }

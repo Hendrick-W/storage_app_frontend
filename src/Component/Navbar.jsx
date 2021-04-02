@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 import "./Navbar.scss";
 
 function Navbar() {
+  const role = localStorage.getItem("role");
+  const onClearLocalStorage = () => {
+    localStorage.clear();
+  }
   return (
     <>
       <nav className="nav-menu">
@@ -15,58 +19,64 @@ function Navbar() {
               <span>Overview</span>
             </Link>
           </li>
-          <li className="nav-text">
-            <Link to="/reference_items">
-              <FontAwesomeIcon icon={faList} />
-              <span>Reference Items</span>
-            </Link>
-          </li>
-          <li className="nav-text">
-            <Link to="/receptions">
-              <FontAwesomeIcon icon={faReceipt} />
-              <span>Receptions</span>
-            </Link>
-          </li>
-          <li className="nav-text">
-            <Link to="/storage">
-              <FontAwesomeIcon icon={faStore} />
-              <span>Storage</span>
-            </Link>
-          </li>
-          <li className="nav-text">
-            <Link to="/dispatch">
-              <FontAwesomeIcon icon={faTruck} />
-              <span>Dispatch</span>
-            </Link>
-          </li>
-          <li className="nav-text">
-            <Link to="#" className="nav-text">
-              <FontAwesomeIcon icon={faPersonBooth} />
-              <span>Employees</span>
-            </Link>
-            <ul>
-              <li className="nav-text">
-                <Link to="/depthead" className="nav-text">
-                  <span>Dept.Head</span>
-                </Link>
-              </li>
-              <li className="nav-text">
-                <Link to="/receptionist" className="nav-text">
-                  <span>Receptionist</span>
-                </Link>
-              </li>
-              <li className="nav-text">
-                <Link to="/storage" className="nav-text">
-                  <span>Storage</span>
-                </Link>
-              </li>
-              <li className="nav-text">
-                <Link to="/dispatch" className="nav-text">
-                  <span>Dispatch</span>
-                </Link>
-              </li>
-            </ul>
-          </li>
+          {(role == 0 || role == 1) &&
+            <li className="nav-text">
+              <Link to="/reference_items">
+                <FontAwesomeIcon icon={faList} />
+                <span>Reference Items</span>
+              </Link>
+            </li>}
+          {(role == 0 || role == 1 || role == 2) &&
+            <li className="nav-text">
+              <Link to="/receptions">
+                <FontAwesomeIcon icon={faReceipt} />
+                <span>Receptions</span>
+              </Link>
+            </li>}
+          {(role == 0 || role == 1 || role == 3) &&
+            <li className="nav-text">
+              <Link to="/storage">
+                <FontAwesomeIcon icon={faStore} />
+                <span>Storage</span>
+              </Link>
+            </li>}
+          {(role == 0 || role == 1 || role == 4) &&
+            <li className="nav-text">
+              <Link to="/storage">
+                <FontAwesomeIcon icon={faStore} />
+                <span>Storage</span>
+              </Link>
+            </li>}
+          {(role == 0 || role == 1) &&
+            <li className="nav-text">
+              <Link to="#" className="nav-text">
+                <FontAwesomeIcon icon={faPersonBooth} />
+                <span>Employees</span>
+              </Link>
+              <ul>
+                {(role == 0) &&
+                  <li className="nav-text">
+                    <Link to="/depthead" className="nav-text">
+                      <span>Dept.Head</span>
+                    </Link>
+                  </li>}
+                <li className="nav-text">
+                  <Link to="/receptionist" className="nav-text">
+                    <span>Receptionist</span>
+                  </Link>
+                </li>
+                <li className="nav-text">
+                  <Link to="/storage" className="nav-text">
+                    <span>Storage</span>
+                  </Link>
+                </li>
+                <li className="nav-text">
+                  <Link to="/dispatch" className="nav-text">
+                    <span>Dispatch</span>
+                  </Link>
+                </li>
+              </ul>
+            </li>}
           <li className="nav-text">
             <Link to="/Profile">
               <FontAwesomeIcon icon={faPersonBooth} />
@@ -76,7 +86,7 @@ function Navbar() {
           <li className="nav-text">
             <Link to="/">
               <FontAwesomeIcon icon={faRunning} />
-              <span>Log Out</span>
+              <span onClick={onClearLocalStorage}>Log Out</span>
             </Link>
           </li>
         </ul>
