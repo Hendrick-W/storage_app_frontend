@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "../pages/home";
 import Profile from "../pages/Profile"
-import ModalRegister from "../Component/ModalRegister"
+import Receptionist from "../pages/Receptionist"
 import DeptHead from "../pages/DeptHead";
 
 export const Routes = () => {
@@ -23,8 +23,8 @@ export const Routes = () => {
         <Route path="/depthead" exact>
           <DeptHead />
         </Route>
-        <Route path="/Modal" exact>
-          <ModalRegister />
+        <Route path="/receptionist" exact>
+          <Receptionist />
         </Route>
       </Switch>
     </Router>
