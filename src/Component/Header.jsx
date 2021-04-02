@@ -18,18 +18,9 @@ import {
 
 import logo from "./asset/logo.png";
 
-
 const Header = (props) => {
   const token = localStorage.getItem("token");
 
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //     dispatch(getUserProfile());
-  // }, []);
-  // const userProfile = useSelector( state => state.user)
-  // const namaUpper = userProfile.nama?.toUpperCase();
-
-  //custom style n icons
   const textStyle = {
     fontSize: "15px",
     fontWeight: "700",

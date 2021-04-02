@@ -9,11 +9,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 import logo from "./asset/logo.png";
 
-function ModalRegister() {
-  const [show, setShow] = useState(true);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+function ModalRegister({ show, handleShowClose }) {
 
   const { register, handleSubmit, errors } = useForm();
   const [nip, setNip] = useState();
@@ -24,34 +20,35 @@ function ModalRegister() {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
   const eye = <FontAwesomeIcon icon={faEye} />;
-  const token = localStorage.getItem("token");
-  let role = localStorage.getItem("role");
 
   const togglePasswordVisibility = () => {
     setShowPassword(showPassword ? false : true);
   };
   const onSubmit = (e) => {
-    // e.preventDefault();
-    // const data = {
-    //   email: email,
-    //   password: password,
-    // };
-    // if (!email) {
-    //   alert("Email is Required");
-    // } else if (!password) {
-    //   alert("Password is Required");
-    // } else {
-    //   axios
-    //     .post("https://wareapplaravel.herokuapp.com/api/login", data)
-    //     .then((res) => {
-    //       console.log(res.data);
-    //       localStorage.setItem("token", res.data.result.token);
-    //       localStorage.setItem("id", res.data.result.user.id);
-    //       alert(res.data.message);
-    //       window.location.href = "/";
-    //     })
-    //     .catch((err) => alert(err));
-    // }
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    const data = {
+      nomor_pegawai: nip,
+      nama: name,
+      password: password,
+      tanggal_lahir: date,
+      role_id: roles,
+    };
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
+    if (!name) {
+      alert("Name is Required");
+    } else if (!password) {
+      alert("Password is Required");
+    } else {
+      axios
+        .post("https://wareapplaravel.herokuapp.com/api/register", data, config)
+        .then((res) => {
+          window.location.href = "/depthead"
+        })
+        .catch((err) => alert(err));
+    }
   };
 
   const alertText = {
@@ -66,11 +63,11 @@ function ModalRegister() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" onClick={handleShowClose}>
         Launch demo modal
         </Button>
 
-      <Modal show={show} onHide={handleClose} animation={false} dialogClassName="modal-90w">
+      <Modal show={show} onHide={handleShowClose} animation={false} dialogClassName="modal-90w">
         <Modal.Header closeButton>
           {/* <Modal.Title>Modal heading</Modal.Title> */}
           <img
@@ -147,7 +144,7 @@ function ModalRegister() {
                   onChange={(e) =>
                     setRoles(e.target.value)
                   }
-                  placeholder="Role Pegawai"
+                  placeholder="1 = Dept Head, 2 = Reception, 3 = Storage, 4 = Dispatch"
                   ref={register({ required: true })}
                 />
               </InputGroup>
@@ -209,7 +206,7 @@ function ModalRegister() {
                 className="btn btn-block-signin w-100"
               >
                 Submit
-                              </Button>
+              </Button>
             </Link>
 
           </Form>
