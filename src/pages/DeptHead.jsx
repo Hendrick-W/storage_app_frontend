@@ -4,7 +4,7 @@ import Header from "../Component/Header";
 import Navbar from "../Component/Navbar";
 import axios from "axios";
 
-function Profile() {
+function DeptHead() {
   const [loading, setLoading] = useState(true);
   const onCheckingToken = () => {
     const token = localStorage.getItem("token");
@@ -48,4 +48,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default DeptHead;

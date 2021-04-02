@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Homes from "../Component/Receptionist";
+import Homes from "../Component/Storage";
 import Header from "../Component/Header";
 import Navbar from "../Component/Navbar";
 import axios from "axios";
 
-function Receptionist() {
+function Profile() {
   const [loading, setLoading] = useState(true);
   const onCheckingToken = () => {
     const token = localStorage.getItem("token");
@@ -48,4 +48,4 @@ function Receptionist() {
   );
 }
 
-export default Receptionist;
+export default Profile;

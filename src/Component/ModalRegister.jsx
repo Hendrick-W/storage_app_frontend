@@ -9,7 +9,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 import logo from "./asset/logo.png";
 
-function ModalRegister({ show, handleShowClose }) {
+function ModalRegister({ show, handleShowClose, role }) {
 
   const { register, handleSubmit, errors } = useForm();
   const [nip, setNip] = useState();
@@ -45,7 +45,7 @@ function ModalRegister({ show, handleShowClose }) {
       axios
         .post("https://wareapplaravel.herokuapp.com/api/register", data, config)
         .then((res) => {
-          window.location.href = "/depthead"
+          window.location.href = `/employees/${role}`;
         })
         .catch((err) => alert(err));
     }
@@ -64,8 +64,8 @@ function ModalRegister({ show, handleShowClose }) {
   return (
     <>
       <Button variant="primary" onClick={handleShowClose}>
-        Launch demo modal
-        </Button>
+        Add Employee
+      </Button>
 
       <Modal show={show} onHide={handleShowClose} animation={false} dialogClassName="modal-90w">
         <Modal.Header closeButton>

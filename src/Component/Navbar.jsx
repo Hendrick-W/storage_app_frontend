@@ -44,7 +44,7 @@ function Navbar() {
             <li className="nav-text">
               <Link to="/storage">
                 <FontAwesomeIcon icon={faStore} />
-                <span>Storage</span>
+                <span>Dispatch</span>
               </Link>
             </li>}
           {(role == 0 || role == 1) &&
@@ -56,22 +56,22 @@ function Navbar() {
               <ul>
                 {(role == 0) &&
                   <li className="nav-text">
-                    <Link to="/depthead" className="nav-text">
+                    <Link to="/employees/depthead" className="nav-text">
                       <span>Dept.Head</span>
                     </Link>
                   </li>}
                 <li className="nav-text">
-                  <Link to="/receptionist" className="nav-text">
+                  <Link to="/employees/receptionist" className="nav-text">
                     <span>Receptionist</span>
                   </Link>
                 </li>
                 <li className="nav-text">
-                  <Link to="/storage" className="nav-text">
+                  <Link to="/employees/storage" className="nav-text">
                     <span>Storage</span>
                   </Link>
                 </li>
                 <li className="nav-text">
-                  <Link to="/dispatch" className="nav-text">
+                  <Link to="/employees/dispatch" className="nav-text">
                     <span>Dispatch</span>
                   </Link>
                 </li>

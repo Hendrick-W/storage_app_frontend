@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import ModalRegister from './ModalRegister';
-import './DeptHead.scss';
+import './Dispatch.scss';
 
-function DeptHead() {
+function Dispatch() {
   const [list, setList] = useState([]);
   const [show, setShow] = useState(false);
   const handleShowClose = () => setShow(!show);
@@ -18,7 +18,7 @@ function DeptHead() {
         .get("https://wareapplaravel.herokuapp.com/api/get_all_user", config)
         .then((res) => {
           if (res.data.status === true) {
-            const filteredResult = res.data.data.filter(result => result.role_id == 1)
+            const filteredResult = res.data.data.filter(result => result.role_id == 4)
             setList(filteredResult);
           } else {
             window.location.href = "/"
@@ -39,7 +39,7 @@ function DeptHead() {
           <td>{nomor_pegawai}</td>
           <td>{nama}</td>
           <td>{tanggal_lahir}</td>
-          <td>Dept. Head</td>
+          <td>Dispatch</td>
         </tr>
       )
     })
@@ -50,23 +50,18 @@ function DeptHead() {
       return <th key={index}>{key.toUpperCase()}</th>
     })
   }
-
-  if (list.length == 0) {
-    return null
-  }
-
   return (
     <div>
-      <h1 id='title'>Employees in Dept. Head</h1>
-      <ModalRegister show={show} handleShowClose={handleShowClose} role="depthead" />
+      <h1 id='title'>Employees in Dispatch</h1>
+      <ModalRegister show={show} handleShowClose={handleShowClose} role="dispatch" />
       <table id='students'>
         <tbody>
           <tr>{renderTableHeader()}</tr>
-          {renderTableData(list)}
+          {list.length != 0 && renderTableData(list)}
         </tbody>
       </table>
     </div>
   )
 }
 
-export default DeptHead
+export default Dispatch

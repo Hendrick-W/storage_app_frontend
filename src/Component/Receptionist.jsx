@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import ModalRegister from './ModalRegister';
-import './DeptHead.scss';
+import './Receptionist.scss';
 
-function DeptHead() {
+function Receptionist() {
   const [list, setList] = useState([]);
   const [show, setShow] = useState(false);
   const handleShowClose = () => setShow(!show);
@@ -57,8 +57,8 @@ function DeptHead() {
 
   return (
     <div>
-      <h1 id='title'>Employees in Dept. Head</h1>
-      <ModalRegister show={show} handleShowClose={handleShowClose} />
+      <h1 id='title'>Employees in Receptionist</h1>
+      <ModalRegister show={show} handleShowClose={handleShowClose} role="receptionist" />
       <table id='students'>
         <tbody>
           <tr>{renderTableHeader()}</tr>
@@ -69,4 +69,4 @@ function DeptHead() {
   )
 }
 
-export default DeptHead
+export default Receptionist
