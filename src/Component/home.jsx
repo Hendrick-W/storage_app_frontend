@@ -28,7 +28,7 @@ const FormSignIn = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     const data = {
-      email: email,
+      nomor_pegawai: email,
       password: password,
     };
     if (!email) {
@@ -39,11 +39,12 @@ const FormSignIn = (props) => {
       axios
         .post("https://wareapplaravel.herokuapp.com/api/login", data)
         .then((res) => {
-          console.log(res.data);
-          localStorage.setItem("token", res.data.result.token);
-          localStorage.setItem("id", res.data.result.user.id);
-          alert(res.data.message);
-          window.location.href = "/";
+          console.log(res);
+          // console.log(res.data);
+          // localStorage.setItem("token", res.data.result.token);
+          // localStorage.setItem("id", res.data.result.user.id);
+          // alert(res.data.message);
+          // window.location.href = "/";
         })
         .catch((err) => alert(err));
     }

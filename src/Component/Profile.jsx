@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Card, CardDeck, Button, Form } from "react-bootstrap";
 import ImageUploader from "react-images-upload";
-import "./Profile.css";
+import "./Profile.css";//import file css untuk ke page
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 // import { getUserProfile } from "../store/actions/user"
