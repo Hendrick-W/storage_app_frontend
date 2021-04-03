@@ -51,7 +51,7 @@ const Header = (props) => {
       <div className="navbar-container w-100 shadowEffect">
         <div className="navbar">
           <Link
-            to={`/`}
+            to={`/new`}
             data-aos="fade-down"
             data-aos-delay="500"
             data-aos-duration="1000"

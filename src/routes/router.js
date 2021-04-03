@@ -11,7 +11,7 @@ import Receptionist from "../pages/Receptionist"
 import DeptHead from "../pages/DeptHead";
 import Storage from "../pages/Storage";
 import Dispatch from "../pages/Dispatch";
-
+import MasterTable from "../Component/masterTable";
 export const Routes = () => {
   return (
     <Router>
@@ -33,6 +33,9 @@ export const Routes = () => {
         </Route>
         <Route path="/employees/dispatch" exact>
           <Dispatch />
+        </Route>
+        <Route path="/new" exact>
+          <MasterTable />
         </Route>
       </Switch>
     </Router>
