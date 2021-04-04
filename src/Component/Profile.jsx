@@ -9,6 +9,9 @@ function Userprofile() {
   const role = localStorage.getItem("role");
   const nomor_pegawai = localStorage.getItem("nomor_pegawai");
   const tanggal_lahir = localStorage.getItem("tanggal_lahir");
+  const onClearLocalStorage = () => {
+    localStorage.clear();
+  }
   return (
     <>
       <CardDeck className="CardInfo">
@@ -33,7 +36,7 @@ function Userprofile() {
 
       <Card body className="Logout">
         {" "}
-        <Link to="/">Log Out </Link>{" "}
+        <Link to="/"><span onClick={onClearLocalStorage}>Log Out</span> </Link>{" "}
       </Card>
       <div className="FormDataBase">
         <CardDeck className="Uploadfoto">

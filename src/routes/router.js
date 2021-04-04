@@ -11,7 +11,7 @@ import Receptionist from "../pages/Receptionist"
 import DeptHead from "../pages/DeptHead";
 import Storage from "../pages/Storage";
 import Dispatch from "../pages/Dispatch";
-import MasterTable from "../Component/masterTable";
+import ReferenceItems from "../pages/ReferenceItems";
 export const Routes = () => {
   return (
     <Router>
@@ -34,8 +34,8 @@ export const Routes = () => {
         <Route path="/employees/dispatch" exact>
           <Dispatch />
         </Route>
-        <Route path="/new" exact>
-          <MasterTable />
+        <Route path="/reference_items" exact>
+          <ReferenceItems />
         </Route>
       </Switch>
     </Router>
